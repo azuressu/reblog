@@ -1,11 +1,10 @@
 package com.blog.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
+@Getter
 public class Users {
 
     @Id
@@ -17,4 +16,8 @@ public class Users {
     private String password;
 
     private String nickname;
+
+    @Column(nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private UserRoleEnum role;
 }
